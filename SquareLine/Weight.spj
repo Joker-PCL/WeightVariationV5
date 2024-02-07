@@ -45070,7 +45070,7 @@
                   {
                     "nid": 239856293,
                     "strtype": "CHANGE SCREEN/Screen_to",
-                    "strval": "GUID99206255-372477S43339",
+                    "strval": "GUID41503165-470375S647337",
                     "InheritedType": 9
                   },
                   {
@@ -69071,9 +69071,9 @@
     "theme_dark": false,
     "theme_color1": 5,
     "theme_color2": 0,
-    "uiExportFolderPath": "D:\\LVGL\\Project\\WeightVariation\\src\\ui",
-    "projectExportFolderPath": "D:\\LVGL\\Project\\WeightVariation\\src\\ui",
-    "backup_cnt": 196,
+    "uiExportFolderPath": "D:\\Project_Verified\\Github\\WeightVariationV5\\src\\ui",
+    "projectExportFolderPath": "D:\\Project_Verified\\Github\\WeightVariationV5\\src\\ui",
+    "backup_cnt": 199,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.6",
     "callfuncsexport": "C_FILE",

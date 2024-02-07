@@ -52,13 +52,13 @@ def main():
         rfid = random.randrange(0, 9999999999)
         rfid = format(rfid, '010d')
         # print("rfid: ", rfid)
-        json_string = json.dumps({"page": "login_page", "rfid": rfid})
+        json_string = json.dumps({"page": "LoginPage", "rfid": rfid})
         # ส่งข้อมูล JSON ไปยัง Arduino
         ser.write(json_string.encode('utf-8'))
         ser.write(b'\n')
         sleep(5)
         weight_set = {
-            "page": 'weighting_page',
+            "page": 'WeightingPage',
             "details": {
                 "product": 'TRAVAN 0.5',
                 "lot": '21500R',
@@ -76,28 +76,34 @@ def main():
         }
         
         try:
-            # แปลง JSON object เป็น JSON string
-            json_string = json.dumps({"page": "login_page", "rfid": rfid})
+            weight_set_json = json.dumps(weight_set)
+            ser.write(weight_set_json.encode('utf-8'))
+            ser.write(b'\n')  # เพิ่ม '\n' เพื่อบอก Arduino ว่าข้อมูลจบ
+            sleep(5)
+
+            json_string = json.dumps({"page": "ThicknessPage"})
             # ส่งข้อมูล JSON ไปยัง Arduino
             ser.write(json_string.encode('utf-8'))
             ser.write(b'\n')
             sleep(5)
-            weight_set_json = json.dumps(weight_set)
-            ser.write(weight_set_json.encode('utf-8'))
-            ser.write(b'\n')  # เพิ่ม '\n' เพื่อบอก Arduino ว่าข้อมูลจบ
-            sleep(3)
-            # แปลง JSON object เป็น JSON string
-            json_string = json.dumps({"page": "thickness_page"})
+            
+            json_string = json.dumps({"page": "TabletCharacteristicsPage"})
             # ส่งข้อมูล JSON ไปยัง Arduino
             ser.write(json_string.encode('utf-8'))
             ser.write(b'\n')
-            sleep(3)
-            
+            sleep(5)
+
+            json_string = json.dumps({"page": "SummaryPage"})
+            # ส่งข้อมูล JSON ไปยัง Arduino
+            ser.write(json_string.encode('utf-8'))
+            ser.write(b'\n')
+            sleep(5)
+
             json_string = json.dumps({"page": "loading_page"})
             # ส่งข้อมูล JSON ไปยัง Arduino
             ser.write(json_string.encode('utf-8'))
             ser.write(b'\n')
-            sleep(3)
+            sleep(5)
         except Exception as e:
                 print(f"Error writing to serial port: {e}")
                 continue

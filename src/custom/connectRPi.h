@@ -9,7 +9,7 @@
 
 DynamicJsonDocument rpi_doc(250);
 
-String currentPage = "loading_page";
+String currentPage = "LoadingPage";
 bool change_screen = false;
 
 int screen_server = 10000;
@@ -101,26 +101,36 @@ void connectToRaspberryPi() {
     }
   }
 
-  if(currentPage == "login_page") {
+  if(currentPage == "LoginPage") {
     if(change_screen) {
         _ui_screen_change(&ui_LoginPage, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_LoginPage_screen_init);
     }
 
     loginPage_init(rpi_doc);
     
-  } else if(currentPage == "weighting_page") {
+  } else if(currentPage == "WeightingPage") {
     if(change_screen) {
       _ui_screen_change(&ui_WeighingPage, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_WeighingPage_screen_init);
     }
     
     weighingPage_init(rpi_doc);
   }
-  else if(currentPage == "thickness_page") {
+  else if(currentPage == "ThicknessPage") {
     if(change_screen) {
       _ui_screen_change(&ui_ThicknessPage, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_ThicknessPage_screen_init);
     }
 
     thicknessPage_init(rpi_doc);
+  }
+  else if(currentPage == "TabletCharacteristicsPage") {
+    if(change_screen) {
+      _ui_screen_change(&ui_TabletCharacteristicsPage, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_TabletCharacteristicsPage_screen_init);
+    }
+  }
+  else if(currentPage == "SummaryPage") {
+    if(change_screen) {
+      _ui_screen_change(&ui_SummaryPage, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_SummaryPage_screen_init);
+    }
   }
   else {
     if(change_screen) {
